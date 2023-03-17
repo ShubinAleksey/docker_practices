@@ -1,0 +1,31 @@
+version: '3'
+
+services:
+  api:
+    restart: always
+    build: ./source
+    ports:
+    - 9999:9090
+    depends_on:
+      - postgres
+    environment:
+      - DB_HOST=postgres
+  postgres:
+    restart: always
+    image: postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=flutterApi
+    expose:
+      - "5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+  adminer:
+    restart: always
+    image: adminer
+    ports: 
+    - 8888:8080
+
+volumes:
+  db_data: {}

@@ -1,4 +1,3 @@
-import 'package:dart_conduit/dart_conduit.dart' as dart_conduit;
 import 'dart:io';
 import 'package:conduit/conduit.dart';
 import 'package:dart_conduit/dart_conduit.dart';
